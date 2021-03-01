@@ -42,7 +42,7 @@ async function searchCoodinateFromCity(prefecture, city){
      * 両方空列ならばfalse, 見つからなければfalse, 見つかれば緯度経度を返す
      */
     let result;
-    axios.get(`http://geoapi.heartrails.com/api/json?method=getTowns&prefecture=${encodeURI(prefecture)}&city=${encodeURI(city)}`)
+    axios.get(`https://geoapi.heartrails.com/api/json?method=getTowns&prefecture=${encodeURI(prefecture)}&city=${encodeURI(city)}`)
       .then(res => {
             console.log(res)
             if(res.data.response.error){
@@ -82,7 +82,7 @@ async function searchCityFromCoodinate(lat, lng){
      */
     //lat: 135, lng: 35 くらい
     let result;
-    axios.get(`http://geoapi.heartrails.com/api/json?method=searchByGeoLocation&x=${lat}&y=${lng}`)
+    axios.get(`https://geoapi.heartrails.com/api/json?method=searchByGeoLocation&x=${lat}&y=${lng}`)
         //[ユーザー名]はQiitaマイページの@で始まる名前です
         //私の場合sukeo-sukeoと記述します
       .then(res => {
