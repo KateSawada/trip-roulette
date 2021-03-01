@@ -94,6 +94,9 @@
 
     </body>
     <style>
+        body {
+            font-family: "Arial", "メイリオ";
+        }
         h1.title {
             position: relative;
             padding: 0.25em 0;
@@ -106,7 +109,7 @@
             background: linear-gradient(to right, rgb(255, 185, 72), transparent);
         }
         #mapid{
-            height: 600px;
+            height: 1000px;
         }
         html{
             background-color: rgb(255, 243, 229);
@@ -114,6 +117,7 @@
 
         /*検索ボックス https://kagesai.net/search-form-design/*/
         input{
+            min-width: 100px;
             outline:0;/*クリック時の青い枠線消す*/	
             padding:0 10px;/*テキスト位置調整*/	 
             border-radius:2px 0 0 2px;/*検索ボックスの角を丸める*/		
@@ -121,6 +125,7 @@
         }
         /*検索ボタン*/
         button{
+            min-width: 100px;
             width: 100%;
             padding: 10px;
             border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/ 

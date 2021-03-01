@@ -1,4 +1,5 @@
 //参考 https://qiita.com/TakeshiNickOsanai/items/783caa9f31bcf762da16
+
 let map = L.map('mapid', {
     center: [35.185649, 136.96741],
     zoom: 5,
@@ -273,7 +274,7 @@ function setCoodinateFromCity(){
     if(prefectureValue || cityValue){
         searchCoodinateFromCityWrapper(prefectureValue, cityValue);
     } else {
-        alert("都道府県と市区町村が空です");
+        alert("都道府県と市区町村を入力してください");
     }
 }
 
@@ -283,7 +284,7 @@ function setCoodinateFromLocation(){
 function onChangeRadius(){
     radius = Number(document.getElementById("inputRadius").value);
     if(radius < 1){
-        alert("半径が設定されていません")
+        alert("半径を入力してください")
         return;
     }
     if(!centerLat || !centerLng){
