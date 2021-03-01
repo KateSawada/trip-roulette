@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+        <script src="https://cdn.geolonia.com/community-geocoder.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <h1 class="title">
+                らんだむですてぃねーしょん！
+            </h1>
+            <p>
+                ダーツの旅のような旅を簡単にできるようにするためのサイトです．中心と半径を指定すると，一様乱数により目的地を抽選します．中心は，都市名の入力または現在地により指定できます．
+                <br>
+                地図の投影法により，表示される円が歪んでいる可能性がありますが，球面上での正円を表示しています．
+            </p>
+            <div>
+                <form>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input id="inputPrefecture" type="text" name="prefecture" placeholder="都道府県">
+                            </td>
+                            <td rowspan=5>
+                                →
+                            </td>
+                            <td rowspan=5>
+                                <table><tbody>
+                                    <tr>
+                                        <td>
+                                            <input id="inputRadius" type="number" name="radius" placeholder="半径(km)" min="1" max="1500">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button type="button" onclick="onChangeRadius(); return false;">
+                                                半径を設定
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                            </td>
+                            <td rowspan=5>
+                                →
+                            </td>
+                            <td rowspan=5>
+                                <button id="submit" type="submit" onclick="onSubmit(); return false;">
+                                    目的地を抽選
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input id="inputCity" type="text" name="city" placeholder="市区町村">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" onclick="setCoodinateFromCity(); return false;">
+                                    都市名から中心を設定
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 10px;">
+                                …または
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="button" onclick="setCoodinateFromLocation(); return false;">現在地を中心に設定</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </form>
+                     
+                    
+            </div>
+        </header>
+        <div id="mapid"></div>
+        <script type="text/javascript"
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    
+    <body>
+
+    </body>
+    <style>
+        h1.title {
+            position: relative;
+            padding: 0.25em 0;
+        }
+        h1.title:after {
+            content: "";
+            display: block;
+            height: 4px;
+            background: -webkit-linear-gradient(to right, rgb(255, 185, 72), transparent);
+            background: linear-gradient(to right, rgb(255, 185, 72), transparent);
+        }
+        #mapid{
+            height: 600px;
+        }
+        html{
+            background-color: rgb(255, 243, 229);
+        }
+
+        /*検索ボックス https://kagesai.net/search-form-design/*/
+        input{
+            outline:0;/*クリック時の青い枠線消す*/	
+            padding:0 10px;/*テキスト位置調整*/	 
+            border-radius:2px 0 0 2px;/*検索ボックスの角を丸める*/		
+            background:rgb(255, 248, 240);/*検索ボックスの背景カラー*/		
+        }
+        /*検索ボタン*/
+        button{
+            width: 100%;
+            padding: 10px;
+            border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/ 
+            background:#ffb657;/*検索ボタンの背景カラー*/ 
+            border:none;/*検索ボタンの枠線を消す*/ 
+            color:#fff;/*検索ボタンのテキストカラー*/ 
+            font-weight:bold;/*検索ボタンのテキスト太字*/ 
+            font-size:16px;/*検索ボタンのフォントサイズ*/ 
+        }
+        button:hover{
+            background:#ffd292;
+            color:rgb(107, 107, 107);
+        }
+        td{
+            padding-left: 5px;
+            padding-right: 5px
+        }
+    </style>
+    <script type="text/javascript" src="main.js"></script>
+</html>
