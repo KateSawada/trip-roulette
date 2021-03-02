@@ -54,7 +54,10 @@ async function searchCoodinateFromCity(prefecture, city){
             result = {"lat": res.data.response.location[0].x, "lng": res.data.response.location[0].y};
             centerLat = result.lat;
             centerLng = result.lng;
-            setCenterMarker(res.data.response.location[0].prefecture + res.data.response.location[0].city + res.data.response.location[0].town)
+            setCenterMarker(res.data.response.location[0].prefecture + res.data.response.location[0].city + res.data.response.location[0].town);
+            if (radius){
+                onChangeRadius();
+            }
         });
     return result;
     /*
@@ -152,6 +155,9 @@ function getgeo() {
        centerLat = position.coords.longitude;
        map.flyTo([centerLng, centerLat], 8);
        setCenterMarker("<b>中心</b><br>現在地");
+       if (radius){
+           onChangeRadius();
+       }
    });
 }
 
