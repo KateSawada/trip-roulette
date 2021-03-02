@@ -307,9 +307,7 @@ function onSubmit(){
     destCoordinate = definePoint(centerLat, centerLng, radius);
     searchCityFromCoodinate(destCoordinate.lat, destCoordinate.lng);
 }
-/*
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById("inputRadius").addEventListener("change", evt => {onChangeRadius();})
+    document.getElementById("inputRadius").addEventListener("input", evt => {onChangeRadius();})
 });
-*/

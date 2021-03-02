@@ -9,3 +9,7 @@ https://katesawada.github.io/trip-roulette/
 ここで実際に動かしてみてください．多分見ればわかります．
 ## 不具合
  - 陸からそこそこ離れた海の中の地点が抽選されるとエラーが起きる
+    - 緯度経度から地名を変換できないことが原因か．
+## 仕様API等
+ - 地名と緯度経度の変換: http://geoapi.heartrails.com/api.html
+ - 地図データ: https://www.openstreetmap.org/#map=5/35.588/134.380
