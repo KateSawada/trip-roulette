@@ -234,6 +234,9 @@ function drawIndicator(cLat, cLng, radius){
     cLat = Number(cLat);
     cLng = Number(cLng);
     radius = Number(radius);
+    if(radius < 10){
+        return null;
+    }
 
     circles = [];
     for (let theta = 0; theta < 2 * Math.PI; theta += Math.PI / 72) {
@@ -289,11 +292,12 @@ function setCoodinateFromLocation(){
 }
 function onChangeRadius(){
     radius = Number(document.getElementById("inputRadius").value);
-    if(radius < 1){
-        alert("半径を入力してください")
+    if(radius == "" || Number(radius) < 1){
+        console.log("null or minus radius");
         return;
     }
     if(!centerLat || !centerLng){
+        console.log("null coordinate");
         return;
     }
     console.log(radius);
@@ -306,7 +310,7 @@ function onChangeRadius(){
 }
 
 function onSubmit(){
-    if(!centerLat || !centerLng || !radius){
+    if(!centerLat || !centerLng || !radius || radius　< 1){
         alert("中心または半径が正しく指定されていません");
         return;
     }
